@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql/mysql-server:8.0.15
+    restart: always
+    container_name: mysql
+    environment:
+        MYSQL_USER: root
+        MYSQL_PASSWORD: root
+        MYSQL_ROOT_PASSWORD: root
+        TZ: Asia/Shanghai   
+    ports:
+        - 3306:3306
+    volumes:
+        - /data/work/data/mysql/data:/data
+        - /data/work/data/mysql/my.cnf:/etc/mysql/my.cnf
+        - /data/work/data/mysql/var/lib/mysql:/var/lib/mysql
+        - /data/mysqlBackup:/data/mysqlBackup
